@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LSI — Life Science Institute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       DESIGN TOKENS
+    ============================================ */
+    :root {
+      --white:        #FAFAF8;
+      --white-pure:   #FFFFFF;
+      --bg-alt:       #F3F5F8;
+      --border:       #DDE2EA;
+      --border-light: #EAEDF2;
+
+      --navy-deep:    #1A3057;
+      --navy:         #2C4A7C;
+      --navy-mid:     #3D6494;
+      --navy-light:   #EBF0F8;
+
+      --text-primary:   #1C1C1E;
+      --text-secondary: #5A6172;
+      --text-tertiary:  #8A919E;
+      --text-inverse:   #FAFAF8;
+
+      --accent-line:  #2C4A7C;
+
+      --font-display: 'Cormorant Garamond', 'Noto Serif JP', Georgia, serif;
+      --font-body:    'DM Sans', 'Noto Sans JP', sans-serif;
+      --font-jp-serif:'Noto Serif JP', 'Cormorant Garamond', serif;
+      --font-jp-sans: 'Noto Sans JP', 'DM Sans', sans-serif;
+
+      --max-w: 1080px;
+      --radius: 2px;
+      --transition: 180ms ease;
+    }
+
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--white);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ============================================
+       TYPOGRAPHY SYSTEM
+    ============================================ */
+    .label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--navy);
+    }
+
+    .label-jp {
+      font-family: var(--font-jp-sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--text-tertiary);
+    }
+
+    .heading-xl {
+      font-family: var(--font-display);
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 500;
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+    }
+
+    .heading-xl-jp {
+      font-family: var(--font-jp-serif);
+      font-size: clamp(1.7rem, 3.5vw, 2.8rem);
+      font-weight: 500;
+      line-height: 1.5;
+      letter-spacing: 0.04em;
+      color: var(--text-primary);
+    }
+
+    .heading-lg {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .heading-lg-jp {
+      font-family: var(--font-jp-serif);
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+      font-weight: 500;
+      line-height: 1.6;
+      letter-spacing: 0.05em;
+    }
+
+    .heading-md {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .heading-md-jp {
+      font-family: var(--font-jp-serif);
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+    }
+
+    .body-text {
+      font-family: var(--font-jp-sans);
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--text-secondary);
+    }
+
+    .body-text-sm {
+      font-family: var(--font-jp-sans);
+      font-size: 0.8rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--text-tertiary);
+    }
+
+    /* ============================================
+       LAYOUT
+    ============================================ */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-alt {
+      background: var(--bg-alt);
+    }
+
+    .section-navy {
+      background: var(--navy-deep);
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .divider-short {
+      width: 32px;
+      height: 1px;
+      background: var(--navy);
+      margin: 20px 0;
+    }
+
+    /* ============================================
+       NAV
+    ============================================ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(250, 250, 248, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 40px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--navy-deep);
+    }
+
+    .nav-logo span {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-left: 10px;
+      vertical-align: middle;
+      display: inline-block;
+      padding-top: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+      transition: color var(--transition);
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--navy);
+      transition: width var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--navy); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      font-size: 11px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.1em !important;
+      color: var(--white-pure) !important;
+      background: var(--navy);
+      padding: 7px 18px;
+      border-radius: var(--radius);
+      transition: background var(--transition) !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--navy-deep) !important; color: var(--white-pure) !important; }
+
+    /* ============================================
+       ANNOUNCEMENT BAR
+    ============================================ */
+    .announcement {
+      background: var(--navy-deep);
+      padding: 10px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      position: fixed;
+      top: 60px; left: 0; right: 0;
+      z-index: 99;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .announcement p {
+      font-family: var(--font-jp-sans);
+      font-size: 11.5px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .announcement strong {
+      font-weight: 500;
+      color: #A8C4E8;
+    }
+
+    .announcement-cta {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white-pure);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: var(--radius);
+      padding: 4px 14px;
+      transition: background var(--transition), border-color var(--transition);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .announcement-cta:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    .hero {
+      padding: 200px 0 120px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+    }
+
+    .hero-left {}
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .hero-eyebrow-line {
+      width: 24px;
+      height: 1px;
+      background: var(--navy);
+    }
+
+    .hero-headline {
+      margin-bottom: 8px;
+    }
+
+    .hero-headline-jp {
+      margin-bottom: 32px;
+    }
+
+    .hero-desc {
+      max-width: 420px;
+      margin-bottom: 48px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--navy);
+      color: var(--text-inverse);
+      font-family: var(--font-jp-sans);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      padding: 12px 28px;
+      border-radius: var(--radius);
+      border: 1px solid var(--navy);
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--navy-deep);
+      border-color: var(--navy-deep);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--navy);
+      font-family: var(--font-jp-sans);
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      transition: border-color var(--transition);
+    }
+
+    .btn-ghost:hover { border-color: var(--navy); }
+
+    .btn-arrow {
+      display: inline-block;
+      transition: transform var(--transition);
+    }
+    .btn-ghost:hover .btn-arrow { transform: translateX(4px); }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-left: 1px solid var(--border);
+      padding-left: 64px;
+    }
+
+    .hero-stat {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .hero-stat:first-child { padding-top: 0; }
+    .hero-stat:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .hero-stat-label {
+      font-family: var(--font-jp-sans);
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+    }
+
+    /* ============================================
+       SECTION HEADER
+    ============================================ */
+    .section-header {
+      margin-bottom: 64px;
+    }
+
+    .section-header-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .section-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--border);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: -4px;
+    }
+
+    /* ============================================
+       SERVICES GRID
+    ============================================ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .service-card {
+      padding: 44px 36px;
+      border-right: 1px solid var(--border);
+      transition: background var(--transition);
+      cursor: default;
+    }
+
+    .service-card:last-child { border-right: none; }
+
+    .service-card:hover { background: var(--navy-light); }
+
+    .service-icon {
+      width: 36px;
+      height: 36px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .service-icon svg {
+      stroke: var(--navy);
+    }
+
+    .service-tag {
+      margin-bottom: 12px;
+    }
+
+    .service-title {
+      margin-bottom: 4px;
+    }
+
+    .service-title-jp {
+      margin-bottom: 20px;
+    }
+
+    .service-body {
+      margin-bottom: 28px;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 2px;
+      transition: border-color var(--transition);
+    }
+
+    .service-link:hover { border-color: var(--navy); }
+    .service-link:hover .btn-arrow { transform: translateX(4px); }
+
+    /* ============================================
+       DSRO SECTION
+    ============================================ */
+    .dsro-section {
+      padding: 96px 0;
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dsro-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .dsro-left {}
+
+    .dsro-urgent {
+      margin-bottom: 40px;
+      padding: 16px 20px;
+      border-left: 3px solid var(--navy);
+      background: var(--white-pure);
+    }
+
+    .dsro-urgent-tag {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .dsro-urgent-text {
+      font-family: var(--font-jp-sans);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+
+    .dsro-right {}
+
+    .membership-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 24px;
+    }
+
+    .membership-table thead tr {
+      background: var(--navy-deep);
+    }
+
+    .membership-table thead th {
+      font-family: var(--font-jp-sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.8);
+      padding: 12px 16px;
+      text-align: left;
+      border: none;
+    }
+
+    .membership-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      background: var(--white-pure);
+      transition: background var(--transition);
+    }
+
+    .membership-table tbody tr:hover { background: var(--navy-light); }
+
+    .membership-table tbody tr:last-child { border-bottom: none; }
+
+    .membership-table td {
+      font-family: var(--font-jp-sans);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-primary);
+      padding: 14px 16px;
+      vertical-align: top;
+    }
+
+    .membership-table .price {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
+      border: 1px solid var(--navy);
+      border-radius: var(--radius);
+      padding: 2px 8px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .badge-deadline {
+      border-color: #B45309;
+      color: #B45309;
+    }
+
+    /* ============================================
+       MFR SECTION
+    ============================================ */
+    .mfr-section { padding: 96px 0; }
+
+    .mfr-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 96px;
+      align-items: start;
+    }
+
+    .mfr-left { position: sticky; top: 100px; }
+
+    .feature-list {
+      list-style: none;
+      margin-top: 36px;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .feature-item:last-child { border-bottom: none; }
+
+    .feature-num {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--text-tertiary);
+      min-width: 24px;
+      padding-top: 2px;
+    }
+
+    .feature-body {}
+
+    .feature-title {
+      font-family: var(--font-jp-serif);
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .partner-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-top: 36px;
+    }
+
+    .partner-item {
+      background: var(--white);
+      padding: 18px 20px;
+      transition: background var(--transition);
+    }
+
+    .partner-item:hover { background: var(--navy-light); }
+
+    .partner-name {
+      font-family: var(--font-jp-sans);
+      font-size: 12.5px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .partner-type {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+    }
+
+    /* ============================================
+       APP SECTION
+    ============================================ */
+    .app-section {
+      padding: 96px 0;
+      background: var(--navy-deep);
+    }
+
+    .app-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .app-label {
+      color: rgba(168, 196, 232, 0.9);
+      margin-bottom: 20px;
+    }
+
+    .app-headline {
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .app-headline-jp {
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 28px;
+    }
+
+    .app-body {
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 40px;
+      max-width: 420px;
+    }
+
+    .app-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+    }
+
+    .app-spec {
+      background: rgba(255,255,255,0.03);
+      padding: 20px 22px;
+    }
+
+    .app-spec-label {
+      font-family: var(--font-jp-sans);
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 4px;
+    }
+
+    .app-spec-value {
+      font-family: var(--font-jp-sans);
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .app-right {}
+
+    .team-list {
+      list-style: none;
+    }
+
+    .team-item {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .team-item:last-child { border-bottom: none; }
+
+    .team-role {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(168, 196, 232, 0.7);
+      min-width: 80px;
+      flex-shrink: 0;
+    }
+
+    .team-name {
+      font-family: var(--font-jp-sans);
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ============================================
+       ABOUT SECTION
+    ============================================ */
+    .about-section { padding: 96px 0; }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+
+    .about-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .about-table tr {
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .about-table tr:last-child { border-bottom: none; }
+
+    .about-table th {
+      font-family: var(--font-jp-sans);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+      padding: 16px 20px 16px 0;
+      text-align: left;
+      white-space: nowrap;
+      vertical-align: top;
+      width: 36%;
+    }
+
+    .about-table td {
+      font-family: var(--font-jp-sans);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--text-primary);
+      padding: 16px 0;
+      line-height: 1.7;
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      background: var(--text-primary);
+      padding: 56px 0 36px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 32px;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .footer-logo-sub {
+      font-family: var(--font-jp-sans);
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.35);
+      margin-top: 4px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 40px;
+    }
+
+    .footer-link-group {}
+
+    .footer-link-group-title {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 14px;
+    }
+
+    .footer-link-group ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-link-group a {
+      font-family: var(--font-jp-sans);
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      transition: color var(--transition);
+    }
+
+    .footer-link-group a:hover { color: rgba(255,255,255,0.9); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-family: var(--font-jp-sans);
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .footer-address {
+      font-family: var(--font-jp-sans);
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.25);
+      text-align: right;
+    }
+
+    /* ============================================
+       SCROLL ANIMATIONS
+    ============================================ */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 500ms ease, transform 500ms ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up-delay-1 { transition-delay: 80ms; }
+    .fade-up-delay-2 { transition-delay: 160ms; }
+    .fade-up-delay-3 { transition-delay: 240ms; }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 900px) {
+      .container { padding: 0 24px; }
+      .nav-inner { padding: 0 24px; }
+      .announcement { padding: 10px 24px; }
+      .hero-inner,
+      .dsro-inner,
+      .mfr-inner,
+      .app-inner,
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero { padding: 160px 0 80px; }
+      .hero-right { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 40px; flex-direction: row; flex-wrap: wrap; gap: 32px; }
+      .hero-stat { padding: 0; border-bottom: none; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .service-card:last-child { border-bottom: none; }
+      .nav-links { display: none; }
+      .mfr-left { position: static; }
+      .partner-grid { grid-template-columns: 1fr; }
+      .footer-top { flex-direction: column; gap: 32px; }
+      .footer-links { flex-wrap: wrap; gap: 28px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .footer-address { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">LSI<span>Life Science Institute</span></a>
+      <ul class="nav-links">
+        <li><a href="#services">事業</a></li>
+        <li><a href="#dsro">DSRO</a></li>
+        <li><a href="#mfr">MFR</a></li>
+        <li><a href="#app">健康DX</a></li>
+        <li><a href="#about">会社概要</a></li>
+        <li><a href="mailto:mimura@dsro.jp" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ANNOUNCEMENT -->
+  <div class="announcement">
+    <p><strong>DSRO 第1期・特別縁故会員</strong>　最終受付中（2025年12月末締切・限定50社）</p>
+    <a href="#dsro" class="announcement-cta">詳細を見る →</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <div class="hero-eyebrow fade-up">
+            <div class="hero-eyebrow-line"></div>
+            <span class="label">Life Science Institute</span>
+          </div>
+          <h1 class="heading-xl hero-headline fade-up fade-up-delay-1">
+            Bridging Medical<br>&amp; Business.
+          </h1>
+          <p class="heading-xl-jp hero-headline-jp fade-up fade-up-delay-2">
+            医療とビジネスの現場を、<br>静かにつなぐ。
+          </p>
+          <p class="body-text hero-desc fade-up fade-up-delay-3">
+            ライフサイエンス研究所は、医療機関・百貨店・企業・自治体の間に立ち、現場の課題を構造的に解決するプラットフォームです。表に出ることなく、しかし確実に、各領域のニーズをドライブします。
+          </p>
+          <div class="hero-actions fade-up fade-up-delay-3">
+            <a href="#services" class="btn-primary">事業を見る<span class="btn-arrow">→</span></a>
+            <a href="mailto:mimura@dsro.jp" class="btn-ghost">お問い合わせ<span class="btn-arrow">→</span></a>
+          </div>
+        </div>
+        <div class="hero-right fade-up fade-up-delay-2">
+          <div class="hero-stat">
+            <div class="hero-stat-num">3</div>
+            <div class="hero-stat-label">コアソリューション</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">6+</div>
+            <div class="hero-stat-label">提携医療機関</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">50</div>
+            <div class="hero-stat-label">DSRO会員枠（縁故・正会員各）</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">2026</div>
+            <div class="hero-stat-label">健康DXアプリ　リリース予定</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-header fade-up">
+        <div class="section-header-row">
+          <div>
+            <div class="label" style="margin-bottom:12px;">— Services</div>
+            <h2 class="heading-lg">Three Core Solutions</h2>
+            <p class="heading-lg-jp" style="color:var(--text-secondary); margin-top:6px;">3つのコアソリューション</p>
+          </div>
+          <div class="section-number">01</div>
+        </div>
+        <div class="divider-short" style="margin-top:28px;"></div>
+      </div>
+
+      <div class="services-grid fade-up fade-up-delay-1">
+        <!-- MFR -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <p class="label service-tag">Medical</p>
+          <h3 class="heading-md service-title">MFR</h3>
+          <p class="heading-md-jp service-title-jp">医療連携プラットフォーム</p>
+          <p class="body-text service-body">
+            大学病院・専門医へのダイレクト予約を代行。患者・紹介元・医療機関の三者をシームレスにつなぎ、最適な医療アクセスを実現します。
+          </p>
+          <a href="#mfr" class="service-link">詳細<span class="btn-arrow">→</span></a>
+        </div>
+
+        <!-- DSRO -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <p class="label service-tag">Retail Innovation</p>
+          <h3 class="heading-md service-title">DSRO</h3>
+          <p class="heading-md-jp service-title-jp">百貨店流通支援機構</p>
+          <p class="body-text service-body">
+            百貨店・行政・医療法人を結ぶ官民連携型プラットフォーム。出店支援・販路構築・DX推進を専門家チームがワンストップで担います。
+          </p>
+          <a href="#dsro" class="service-link">詳細<span class="btn-arrow">→</span></a>
+        </div>
+
+        <!-- App -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
+              <path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <p class="label service-tag">Health DX</p>
+          <h3 class="heading-md service-title">Prevention App</h3>
+          <p class="heading-md-jp service-title-jp">予防医療アプリ</p>
+          <p class="body-text service-body">
+            栗原毅院長監修のもと、生活習慣病の予防・改善を医師チームがデジタルで伴走。食事・運動・ストレスの個別指導と専門医連携を統合。
+          </p>
+          <a href="#app" class="service-link">詳細<span class="btn-arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DSRO SECTION -->
+  <section class="dsro-section" id="dsro">
+    <div class="container">
+      <div class="dsro-inner">
+        <div class="dsro-left fade-up">
+          <div class="label" style="margin-bottom:12px;">— Retail Innovation</div>
+          <h2 class="heading-lg">DSRO</h2>
+          <p class="heading-lg-jp" style="color:var(--text-secondary); margin-top:4px; margin-bottom:24px;">百貨店流通支援機構</p>
+          <div class="divider-short"></div>
+          <p class="body-text" style="margin-bottom:24px;">
+            百貨店経営の効率化と課題解決を、実務の現場から担います。単なる紹介機関ではなく、経営層の右腕として課題提起・改善提案を行うシンクタンク型機構を目指します。
+          </p>
+
+          <div class="dsro-urgent">
+            <p class="dsro-urgent-tag">Recruitment</p>
+            <p class="dsro-urgent-text">
+              第1期・特別縁故会員を受付中。<br>
+              <strong>2025年12月末締切　定員50社限定。</strong><br>
+              入会をご検討の法人・団体は、まず問い合わせフォームよりご連絡ください。
+            </p>
+          </div>
+
+          <div style="margin-bottom:32px;">
+            <p class="label-jp" style="margin-bottom:16px;">専門部会</p>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <span style="font-family:var(--font-jp-sans); font-size:11px; font-weight:300; color:var(--text-secondary); background:var(--white-pure); border:1px solid var(--border); border-radius:var(--radius); padding:5px 12px;">健康経営部会</span>
+              <span style="font-family:var(--font-jp-sans); font-size:11px; font-weight:300; color:var(--text-secondary); background:var(--white-pure); border:1px solid var(--border); border-radius:var(--radius); padding:5px 12px;">地域創生部会</span>
+              <span style="font-family:var(--font-jp-sans); font-size:11px; font-weight:300; color:var(--text-secondary); background:var(--white-pure); border:1px solid var(--border); border-radius:var(--radius); padding:5px 12px;">経費最適化部会</span>
+              <span style="font-family:var(--font-jp-sans); font-size:11px; font-weight:300; color:var(--text-secondary); background:var(--white-pure); border:1px solid var(--border); border-radius:var(--radius); padding:5px 12px;">セキュリティ&amp;DX部会</span>
+              <span style="font-family:var(--font-jp-sans); font-size:11px; font-weight:300; color:var(--text-secondary); background:var(--white-pure); border:1px solid var(--border); border-radius:var(--radius); padding:5px 12px;">富裕層特化部会</span>
+            </div>
+          </div>
+
+          <a href="mailto:mimura@dsro.jp" class="btn-primary" style="width:fit-content;">
+            入会・問い合わせ<span class="btn-arrow">→</span>
+          </a>
+        </div>
+
+        <div class="dsro-right fade-up fade-up-delay-2">
+          <p class="label-jp" style="margin-bottom:16px;">会員種別・費用</p>
+          <table class="membership-table">
+            <thead>
+              <tr>
+                <th>種別</th>
+                <th>合計（税込）</th>
+                <th>締切</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span style="font-family:var(--font-jp-sans); font-size:13px; font-weight:400;">特別縁故会員</span>
+                  <span class="badge badge-deadline">残枠あり</span>
+                </td>
+                <td><span class="price">110万円</span></td>
+                <td style="font-size:11px; color:var(--text-tertiary);">12月末</td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="font-family:var(--font-jp-sans); font-size:13px; font-weight:400;">正会員</span>
+                </td>
+                <td><span class="price">132万円</span></td>
+                <td style="font-size:11px; color:var(--text-tertiary);">令8年3月</td>
+              </tr>
+              <tr>
+                <td>
+                  <span style="font-family:var(--font-jp-sans); font-size:13px; font-weight:400;">半年会員</span>
+                </td>
+                <td><span class="price">77万円</span></td>
+                <td style="font-size:11px; color:var(--text-tertiary);">—</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p class="body-text-sm" style="margin-bottom:32px;">※入会金＋年会費（税込）。書類審査・簡易ヒアリングあり。</p>
+
+          <div style="border:1px solid var(--border); border-radius:var(--radius); overflow:hidden;">
+            <div style="background:var(--navy-deep); padding:14px 20px;">
+              <p style="font-family:var(--font-jp-sans); font-size:11px; font-weight:400; letter-spacing:0.06em; color:rgba(255,255,255,0.7);">主な入会特典</p>
+            </div>
+            <div style="background:var(--white-pure);">
+              <div style="padding:16px 20px; border-bottom:1px solid var(--border-light); display:flex; gap:12px; align-items:baseline;">
+                <span style="font-family:var(--font-display); font-size:0.75rem; color:var(--text-tertiary); min-width:20px;">A</span>
+                <span style="font-family:var(--font-jp-sans); font-size:12.5px; font-weight:300; color:var(--text-primary);">STORES広告媒体利用権　（定価30万円相当クーポン付与）</span>
+              </div>
+              <div style="padding:16px 20px; border-bottom:1px solid var(--border-light); display:flex; gap:12px; align-items:baseline;">
+                <span style="font-family:var(--font-display); font-size:0.75rem; color:var(--text-tertiary); min-width:20px;">B</span>
+                <span style="font-family:var(--font-jp-sans); font-size:12.5px; font-weight:300; color:var(--text-primary);">STORESフォーラム参加権　年3回（東京・大阪・他）</span>
+              </div>
+              <div style="padding:16px 20px; border-bottom:1px solid var(--border-light); display:flex; gap:12px; align-items:baseline;">
+                <span style="font-family:var(--font-display); font-size:0.75rem; color:var(--text-tertiary); min-width:20px;">C</span>
+                <span style="font-family:var(--font-jp-sans); font-size:12.5px; font-weight:300; color:var(--text-primary);">百貨店バイヤー・フロア責任者への機構公式紹介</span>
+              </div>
+              <div style="padding:16px 20px; display:flex; gap:12px; align-items:baseline;">
+                <span style="font-family:var(--font-display); font-size:0.75rem; color:var(--text-tertiary); min-width:20px;">+</span>
+                <span style="font-family:var(--font-jp-sans); font-size:12.5px; font-weight:300; color:var(--text-primary);">分科会理事就任権、定期オンライン相談（月2回）ほか</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:28px; padding:16px 20px; background:var(--white-pure); border:1px solid var(--border); border-radius:var(--radius);">
+            <p class="dsro-urgent-tag" style="margin-bottom:6px;">【予告】設立記念講演会</p>
+            <p style="font-family:var(--font-jp-sans); font-size:12.5px; font-weight:300; color:var(--text-primary); line-height:1.7;">
+              百貨店出店戦略の新潮流<br>
+              <span style="color:var(--text-tertiary); font-size:11px;">2026年初春 ／ 東北地区老舗百貨店内大会議室 ／ 限定30社</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MFR SECTION -->
+  <section class="mfr-section" id="mfr">
+    <div class="container">
+      <div class="mfr-inner">
+        <div class="mfr-left fade-up">
+          <div class="label" style="margin-bottom:12px;">— Medical</div>
+          <h2 class="heading-lg">MFR</h2>
+          <p class="heading-lg-jp" style="color:var(--text-secondary); margin-top:4px; margin-bottom:24px;">医療連携プラットフォーム</p>
+          <div class="divider-short"></div>
+          <p class="body-text" style="margin-bottom:8px;">
+            貴医院・患者様に代わり、最適な医師・医療機関の選定から診療予約までをワンストップで代行するシステムです。
+          </p>
+          <p class="body-text" style="margin-bottom:36px;">
+            診療情報提供書の連携・受診後フォローまで、医療機関の負担を最小化しながら患者の利便性を高めます。
+          </p>
+          <a href="mailto:mimura@dsro.jp" class="btn-ghost">医療機関の方はこちら<span class="btn-arrow">→</span></a>
+        </div>
+
+        <div class="fade-up fade-up-delay-1">
+          <p class="label-jp" style="margin-bottom:20px;">主要機能</p>
+          <ul class="feature-list" style="margin-bottom:48px;">
+            <li class="feature-item">
+              <span class="feature-num">01</span>
+              <div class="feature-body">
+                <p class="feature-title">専門医マッチング</p>
+                <p class="body-text-sm">症状・希望条件をヒアリングし、最適な医師・医療機関を選定します。</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <span class="feature-num">02</span>
+              <div class="feature-body">
+                <p class="feature-title">診療予約代行</p>
+                <p class="body-text-sm">患者様に代わり、提携医療機関への予約手続きをすべて実施します。</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <span class="feature-num">03</span>
+              <div class="feature-body">
+                <p class="feature-title">診療情報提供書連携</p>
+                <p class="body-text-sm">検査結果に基づく紹介状発行と予約フローをスムーズに可視化します。</p>
+              </div>
+            </li>
+            <li class="feature-item">
+              <span class="feature-num">04</span>
+              <div class="feature-body">
+                <p class="feature-title">継続フォローアップ</p>
+                <p class="body-text-sm">受診後の状況確認から次の専門医紹介まで、継続的にサポートします。</p>
+              </div>
+            </li>
+          </ul>
+
+          <p class="label-jp" style="margin-bottom:16px;">提携医療機関（一部）</p>
+          <div class="partner-grid">
+            <div class="partner-item">
+              <p class="partner-name">東京慈恵会医科大学附属病院</p>
+              <p class="partner-type">大学病院</p>
+            </div>
+            <div class="partner-item">
+              <p class="partner-name">順天堂大学附属病院</p>
+              <p class="partner-type">大学病院</p>
+            </div>
+            <div class="partner-item">
+              <p class="partner-name">東邦大学医療センター大森病院</p>
+              <p class="partner-type">大学病院</p>
+            </div>
+            <div class="partner-item">
+              <p class="partner-name">愛育クリニック</p>
+              <p class="partner-type">専門クリニック</p>
+            </div>
+            <div class="partner-item">
+              <p class="partner-name">横浜市民病院</p>
+              <p class="partner-type">総合病院</p>
+            </div>
+            <div class="partner-item">
+              <p class="partner-name">千葉西総合病院</p>
+              <p class="partner-type">総合病院</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- APP SECTION -->
+  <section class="app-section" id="app">
+    <div class="container">
+      <div class="app-inner">
+        <div class="fade-up">
+          <p class="label app-label">— Health DX</p>
+          <h2 class="heading-lg app-headline">Prevention App</h2>
+          <p class="heading-lg-jp app-headline-jp">予防医療アプリ</p>
+          <p class="body-text app-body">
+            栗原毅院長（栗原クリニック東京日本橋）監修のもと、生活習慣病の予防・改善をデジタルで伴走する専門プログラムです。産業医・管理栄養士・理学療法士による個別指導とMFR連携を統合しています。
+          </p>
+          <div class="app-specs">
+            <div class="app-spec">
+              <p class="app-spec-label">リリース予定</p>
+              <p class="app-spec-value">2026年4月</p>
+            </div>
+            <div class="app-spec">
+              <p class="app-spec-label">年会費</p>
+              <p class="app-spec-value">60,000〜120,000円</p>
+            </div>
+            <div class="app-spec">
+              <p class="app-spec-label">対象</p>
+              <p class="app-spec-value">個人・法人（福利厚生）</p>
+            </div>
+            <div class="app-spec">
+              <p class="app-spec-label">先行予約</p>
+              <p class="app-spec-value">準備中（近日公開）</p>
+            </div>
+          </div>
+          <a href="mailto:mimura@dsro.jp" class="btn-primary" style="margin-top:32px; border-color:rgba(255,255,255,0.2); background:rgba(255,255,255,0.1); color:rgba(255,255,255,0.85);">
+            先行予約の問い合わせ<span class="btn-arrow">→</span>
+          </a>
+        </div>
+
+        <div class="fade-up fade-up-delay-2">
+          <p style="font-size:10px; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:rgba(168,196,232,0.7); margin-bottom:20px;">Specialist Team</p>
+          <ul class="team-list">
+            <li class="team-item">
+              <span class="team-role">監修</span>
+              <span class="team-name">栗原 毅 医師　（LSI顧問医師）</span>
+            </li>
+            <li class="team-item">
+              <span class="team-role">産業医</span>
+              <span class="team-name">産業医・保険医チーム</span>
+            </li>
+            <li class="team-item">
+              <span class="team-role">看護</span>
+              <span class="team-name">看護師チーム</span>
+            </li>
+            <li class="team-item">
+              <span class="team-role">リハビリ</span>
+              <span class="team-name">理学療法士・運動指導士</span>
+            </li>
+            <li class="team-item">
+              <span class="team-role">栄養</span>
+              <span class="team-name">管理栄養士チーム</span>
+            </li>
+          </ul>
+
+          <div style="margin-top:40px; padding-top:32px; border-top:1px solid rgba(255,255,255,0.07);">
+            <p style="font-size:10px; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:rgba(168,196,232,0.7); margin-bottom:16px;">Core Functions</p>
+            <div style="display:flex; flex-direction:column; gap:12px;">
+              <div style="display:flex; align-items:baseline; gap:12px;">
+                <span style="font-family:var(--font-display); font-size:0.75rem; color:rgba(255,255,255,0.3); min-width:20px;">—</span>
+                <span style="font-family:var(--font-jp-sans); font-size:12.5px; font-weight:300; color:rgba(255,255,255,0.65);">検査結果開示・オンライン診療による現状把握</span>
+              </div>
+              <div style="display:flex; align-items:baseline; gap:12px;">
+                <span style="font-family:var(--font-display); font-size:0.75rem; color:rgba(255,255,255,0.3); min-width:20px;">—</span>
+                <span style="font-family:var(--font-jp-sans); font-size:12.5px; font-weight:300; color:rgba(255,255,255,0.65);">食事・運動・ストレス軽減の個別プログラム</span>
+              </div>
+              <div style="display:flex; align-items:baseline; gap:12px;">
+                <span style="font-family:var(--font-display); font-size:0.75rem; color:rgba(255,255,255,0.3); min-width:20px;">—</span>
+                <span style="font-family:var(--font-jp-sans); font-size:12.5px; font-weight:300; color:rgba(255,255,255,0.65);">MFR連携による専門医紹介・予約機能</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-inner">
+        <div class="fade-up">
+          <div class="label" style="margin-bottom:12px;">— Company</div>
+          <h2 class="heading-lg">About LSI</h2>
+          <p class="heading-lg-jp" style="color:var(--text-secondary); margin-top:4px; margin-bottom:24px;">会社概要</p>
+          <div class="divider-short"></div>
+          <p class="body-text" style="margin-bottom:20px;">
+            社会的ニーズに最先端医療をマッチングし、日本の医療に新領野を切り拓く。
+          </p>
+          <p class="body-text">
+            医療・流通・テクノロジーを横断する専門家集団として、法人・個人・自治体の課題解決を静かに、しかし確実に推進します。
+          </p>
+        </div>
+
+        <div class="fade-up fade-up-delay-1">
+          <table class="about-table">
+            <tr>
+              <th>社名</th>
+              <td>株式会社ライフサイエンス研究所<br><span style="font-size:11px; color:var(--text-tertiary);">Life Science Institute Co., Ltd.</span></td>
+            </tr>
+            <tr>
+              <th>代表取締役</th>
+              <td>三村 英郎</td>
+            </tr>
+            <tr>
+              <th>所在地</th>
+              <td>〒107-0052<br>東京都港区赤坂2-14-5<br>Daiwa赤坂ビル7階</td>
+            </tr>
+            <tr>
+              <th>主要事業</th>
+              <td>医療連携（MFR）<br>百貨店流通支援（DSRO）<br>予防医療アプリ開発</td>
+            </tr>
+            <tr>
+              <th>関連サイト</th>
+              <td>lsi-net.jp<br><span style="color:var(--text-tertiary);">dsro.jp（準備中）</span></td>
+            </tr>
+            <tr>
+              <th>問い合わせ</th>
+              <td><a href="mailto:mimura@dsro.jp" style="color:var(--navy); border-bottom:1px solid var(--border); padding-bottom:1px;">mimura@dsro.jp</a></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <p class="footer-logo">LSI</p>
+          <p class="footer-logo-sub">Life Science Institute Co., Ltd.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-link-group">
+            <p class="footer-link-group-title">Services</p>
+            <ul>
+              <li><a href="#mfr">MFR — 医療連携</a></li>
+              <li><a href="#dsro">DSRO — 百貨店流通支援</a></li>
+              <li><a href="#app">予防医療アプリ</a></li>
+            </ul>
+          </div>
+          <div class="footer-link-group">
+            <p class="footer-link-group-title">Company</p>
+            <ul>
+              <li><a href="#about">会社概要</a></li>
+              <li><a href="mailto:mimura@dsro.jp">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-link-group">
+            <p class="footer-link-group-title">DSRO</p>
+            <ul>
+              <li><a href="#dsro">入会案内</a></li>
+              <li><a href="mailto:mimura@dsro.jp">mimura@dsro.jp</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Life Science Institute Co., Ltd. All rights reserved.</p>
+        <p class="footer-address">東京都港区赤坂2-14-5 Daiwa赤坂ビル7階</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Immediately show hero elements
+    document.querySelectorAll('.hero .fade-up').forEach(el => {
+      setTimeout(() => el.classList.add('visible'), 100);
+    });
+
+    // Smooth nav scroll offset
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 108;
+          window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
