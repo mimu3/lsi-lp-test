@@ -53,7 +53,7 @@
       color: var(--text-primary);
       font-family: var(--font-body);
       font-weight: 300;
-      line-height: 1.7;
+      line-height: 1.85; /* ADJUSTED: 日本語本文の読みやすさのため 1.7→1.85（目標 1.9〜2.0 へ近づける） */
       -webkit-font-smoothing: antialiased;
     }
 
@@ -65,9 +65,9 @@
     ============================================ */
     .label {
       font-family: var(--font-body);
-      font-size: 11px;
+      font-size: 10.5px; /* ADJUSTED: 少し小さく抑え、ヒエラルキーの底辺として機能させる */
       font-weight: 500;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.2em; /* ADJUSTED: 0.14em→0.2em で uppercase の通気性・格調を高める */
       text-transform: uppercase;
       color: var(--navy);
     }
@@ -75,72 +75,74 @@
     .label-jp {
       font-family: var(--font-jp-sans);
       font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.1em;
+      font-weight: 300; /* ADJUSTED: 400→300 日本語ラベルは軽いウェイトで控えめに */
+      letter-spacing: 0.12em; /* ADJUSTED: 0.1em→0.12em わずかに間隔を空けて可読性向上 */
       color: var(--text-tertiary);
     }
 
     .heading-xl {
       font-family: var(--font-display);
-      font-size: clamp(2.6rem, 5vw, 4.2rem);
-      font-weight: 500;
-      line-height: 1.18;
-      letter-spacing: -0.01em;
+      font-size: clamp(2.8rem, 5.5vw, 4.8rem); /* ADJUSTED: 欧文見出しは「細く大きく」の原則で上限を引き上げ */
+      font-weight: 400; /* ADJUSTED: 500→400 Cormorant の細さを活かし、静かな権威感を演出 */
+      line-height: 1.12; /* ADJUSTED: 1.18→1.12 英語見出しは目標 1.1〜1.2 の下限へ。大きくしたため間延び防止 */
+      letter-spacing: -0.015em; /* ADJUSTED: サイズ増に合わせてわずかにトラッキングを詰める */
       color: var(--text-primary);
     }
 
     .heading-xl-jp {
       font-family: var(--font-jp-serif);
-      font-size: clamp(1.7rem, 3.5vw, 2.8rem);
-      font-weight: 500;
-      line-height: 1.5;
-      letter-spacing: 0.04em;
+      font-size: clamp(1.15rem, 2vw, 1.55rem); /* ADJUSTED: 2.8rem→1.55rem 英語との明確なサイズ差でヒエラルキーを強調 */
+      font-weight: 400; /* ADJUSTED: 500→400 日本語サブコピーは軽くして欧文見出しを引き立てる */
+      line-height: 1.95; /* ADJUSTED: 1.5→1.95 日本語テキストは目標 1.9〜2.0 に合わせる */
+      letter-spacing: 0.06em; /* ADJUSTED: 0.04em→0.06em 軽いウェイトに合わせて字間を少し広げる */
       color: var(--text-primary);
     }
 
     .heading-lg {
       font-family: var(--font-display);
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
-      font-weight: 500;
-      line-height: 1.25;
+      font-size: clamp(1.75rem, 3.2vw, 2.75rem); /* ADJUSTED: 欧文セクション見出しも一回り大きく */
+      font-weight: 400; /* ADJUSTED: 500→400 Cormorant の細さで品格を表現 */
+      line-height: 1.15; /* ADJUSTED: 1.25→1.15 英語見出し目標値 1.1〜1.2 に合わせる */
       letter-spacing: -0.01em;
     }
 
     .heading-lg-jp {
       font-family: var(--font-jp-serif);
-      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-      font-weight: 500;
-      line-height: 1.6;
-      letter-spacing: 0.05em;
+      font-size: clamp(0.85rem, 1.4vw, 1.05rem); /* ADJUSTED: 1.5rem→1.05rem 欧文との差を拡大しヒエラルキー明確化 */
+      font-weight: 400; /* ADJUSTED: 500→400 軽くして欧文を引き立てる */
+      line-height: 1.95; /* ADJUSTED: 1.6→1.95 日本語テキスト目標値 1.9〜2.0 */
+      letter-spacing: 0.07em; /* ADJUSTED: 0.05em→0.07em 軽いウェイト補完で可読性向上 */
     }
 
     .heading-md {
       font-family: var(--font-display);
-      font-size: clamp(1.1rem, 2vw, 1.4rem);
-      font-weight: 500;
+      font-size: clamp(1.15rem, 2.1vw, 1.5rem); /* ADJUSTED: 欧文カード見出しを一段ゆとりある大きさに */
+      font-weight: 400; /* ADJUSTED: 500→400 Cormorant の細さを一貫して保つ */
+      line-height: 1.2; /* ADJUSTED: 明示的に英語見出しの行間 1.1〜1.2 を設定 */
       letter-spacing: 0.01em;
     }
 
     .heading-md-jp {
       font-family: var(--font-jp-serif);
-      font-size: 1rem;
-      font-weight: 500;
-      letter-spacing: 0.06em;
+      font-size: 0.8rem; /* ADJUSTED: 1rem→0.8rem 欧文カード見出しとの差を出す */
+      font-weight: 400; /* ADJUSTED: 500→400 日本語サブ見出しは軽く抑える */
+      line-height: 1.95; /* ADJUSTED: 明示的に日本語行間 1.9〜2.0 を設定 */
+      letter-spacing: 0.08em; /* ADJUSTED: 0.06em→0.08em 小さなサイズ・軽いウェイトの補完 */
     }
 
     .body-text {
       font-family: var(--font-jp-sans);
-      font-size: 0.875rem;
+      font-size: 0.85rem; /* ADJUSTED: 0.875rem→0.85rem 日本語本文は小さめで軽い印象に */
       font-weight: 300;
-      line-height: 1.9;
+      line-height: 2.0; /* ADJUSTED: 1.9→2.0 日本語テキスト目標値 1.9〜2.0 の上限へ */
       color: var(--text-secondary);
     }
 
     .body-text-sm {
       font-family: var(--font-jp-sans);
-      font-size: 0.8rem;
+      font-size: 0.775rem; /* ADJUSTED: 0.8rem→0.775rem 補足テキストをさらに一段小さく */
       font-weight: 300;
-      line-height: 1.8;
+      line-height: 1.95; /* ADJUSTED: 1.8→1.95 日本語テキスト目標値 1.9〜2.0 に統一 */
       color: var(--text-tertiary);
     }
 
@@ -154,7 +156,7 @@
     }
 
     .section {
-      padding: 96px 0;
+      padding: 128px 0; /* ADJUSTED: 96px→128px セクション間の呼吸感を重視（ブランド原則「広めに取る」） */
     }
 
     .section-alt {
@@ -172,10 +174,10 @@
     }
 
     .divider-short {
-      width: 32px;
+      width: 28px; /* ADJUSTED: 32px→28px 細く短く、存在感を抑える */
       height: 1px;
       background: var(--navy);
-      margin: 20px 0;
+      margin: 28px 0; /* ADJUSTED: 20px→28px 上下の余白を広げ、見出しとの関係に呼吸感 */
     }
 
     /* ============================================
@@ -316,7 +318,7 @@
        HERO
     ============================================ */
     .hero {
-      padding: 200px 0 120px;
+      padding: 216px 0 144px; /* ADJUSTED: 下余白 120px→144px ヒーロー下部の呼吸感を増す */
       border-bottom: 1px solid var(--border);
     }
 
@@ -333,7 +335,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 36px;
+      margin-bottom: 44px; /* ADJUSTED: 36px→44px アイブロウと見出しの間に余裕 */
     }
 
     .hero-eyebrow-line {
@@ -343,16 +345,16 @@
     }
 
     .hero-headline {
-      margin-bottom: 8px;
+      margin-bottom: 16px; /* ADJUSTED: 8px→16px 英語見出しと日本語サブコピーの間を開けてヒエラルキーを視覚化 */
     }
 
     .hero-headline-jp {
-      margin-bottom: 32px;
+      margin-bottom: 40px; /* ADJUSTED: 32px→40px 日本語サブコピーと本文の間の余白を拡大 */
     }
 
     .hero-desc {
-      max-width: 420px;
-      margin-bottom: 48px;
+      max-width: 440px; /* ADJUSTED: 420px→440px 行幅をわずかに広げて行数を抑える */
+      margin-bottom: 56px; /* ADJUSTED: 48px→56px 本文とアクションの間に十分な呼吸感 */
     }
 
     .hero-actions {
@@ -413,7 +415,7 @@
     }
 
     .hero-stat {
-      padding: 28px 0;
+      padding: 32px 0; /* ADJUSTED: 28px→32px 統計数値の縦余白を拡大、各項目に呼吸感 */
       border-bottom: 1px solid var(--border-light);
     }
     .hero-stat:first-child { padding-top: 0; }
@@ -421,18 +423,18 @@
 
     .hero-stat-num {
       font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 400;
+      font-size: 2.2rem; /* ADJUSTED: 2rem→2.2rem 数値を少し大きく、視線を引く */
+      font-weight: 300; /* ADJUSTED: 400→300 Cormorant の細さを活かし数値を優雅に */
       color: var(--navy);
       line-height: 1;
-      margin-bottom: 4px;
+      margin-bottom: 6px; /* ADJUSTED: 4px→6px 数値とラベルの間を少し広げる */
     }
 
     .hero-stat-label {
       font-family: var(--font-jp-sans);
-      font-size: 11px;
+      font-size: 10.5px; /* ADJUSTED: 11px→10.5px ラベルはさらに控えめに */
       font-weight: 300;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em; /* ADJUSTED: 0.06em→0.08em 読みやすさ向上 */
       color: var(--text-tertiary);
     }
 
@@ -440,7 +442,7 @@
        SECTION HEADER
     ============================================ */
     .section-header {
-      margin-bottom: 64px;
+      margin-bottom: 80px; /* ADJUSTED: 64px→80px セクションヘッダーとコンテンツの間の呼吸感を確保 */
     }
 
     .section-header-row {
@@ -470,7 +472,7 @@
     }
 
     .service-card {
-      padding: 44px 36px;
+      padding: 56px 44px; /* ADJUSTED: 44px 36px→56px 44px カード内側の余白を広げ、窮屈感を解消 */
       border-right: 1px solid var(--border);
       transition: background var(--transition);
       cursor: default;
@@ -483,7 +485,7 @@
     .service-icon {
       width: 36px;
       height: 36px;
-      margin-bottom: 28px;
+      margin-bottom: 36px; /* ADJUSTED: 28px→36px アイコン下余白を増やし、タグまでの間に余裕 */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -502,11 +504,11 @@
     }
 
     .service-title-jp {
-      margin-bottom: 20px;
+      margin-bottom: 28px; /* ADJUSTED: 20px→28px サブタイトルと本文の間を広げて読みやすく */
     }
 
     .service-body {
-      margin-bottom: 28px;
+      margin-bottom: 36px; /* ADJUSTED: 28px→36px 本文とリンクの間の余白を拡大 */
     }
 
     .service-link {
@@ -530,7 +532,7 @@
        DSRO SECTION
     ============================================ */
     .dsro-section {
-      padding: 96px 0;
+      padding: 128px 0; /* ADJUSTED: 96px→128px .section と統一した呼吸感 */
       background: var(--bg-alt);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
@@ -546,9 +548,9 @@
     .dsro-left {}
 
     .dsro-urgent {
-      margin-bottom: 40px;
-      padding: 16px 20px;
-      border-left: 3px solid var(--navy);
+      margin-bottom: 48px; /* ADJUSTED: 40px→48px 下のコンテンツとの間隔を広げる */
+      padding: 20px 24px; /* ADJUSTED: 16px 20px→20px 24px ボックス内の余白を増やし窮屈感解消 */
+      border-left: 2px solid var(--navy); /* ADJUSTED: 3px→2px 細く抑えてボーダーの存在感を和らげる */
       background: var(--white-pure);
     }
 
@@ -583,11 +585,11 @@
 
     .membership-table thead th {
       font-family: var(--font-jp-sans);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.06em;
+      font-size: 10.5px; /* ADJUSTED: 11px→10.5px ヘッダーはやや控えめなサイズに */
+      font-weight: 300; /* ADJUSTED: 400→300 軽いウェイトで圧迫感を減らす */
+      letter-spacing: 0.08em; /* ADJUSTED: 0.06em→0.08em 読みやすさ向上 */
       color: rgba(255,255,255,0.8);
-      padding: 12px 16px;
+      padding: 14px 20px; /* ADJUSTED: 12px 16px→14px 20px テーブルヘッダーに余裕を持たせる */
       text-align: left;
       border: none;
     }
@@ -604,10 +606,10 @@
 
     .membership-table td {
       font-family: var(--font-jp-sans);
-      font-size: 13px;
+      font-size: 12.5px; /* ADJUSTED: 13px→12.5px テーブルの情報を軽く見せる */
       font-weight: 300;
       color: var(--text-primary);
-      padding: 14px 16px;
+      padding: 18px 20px; /* ADJUSTED: 14px 16px→18px 20px セル内の余白を増やして窮屈感解消 */
       vertical-align: top;
     }
 
@@ -641,7 +643,7 @@
     /* ============================================
        MFR SECTION
     ============================================ */
-    .mfr-section { padding: 96px 0; }
+    .mfr-section { padding: 128px 0; } /* ADJUSTED: 96px→128px .section と統一した呼吸感 */
 
     .mfr-inner {
       display: grid;
@@ -659,8 +661,8 @@
 
     .feature-item {
       display: flex;
-      gap: 16px;
-      padding: 20px 0;
+      gap: 20px; /* ADJUSTED: 16px→20px 番号と本文の間の余白を広げる */
+      padding: 24px 0; /* ADJUSTED: 20px→24px 各フィーチャーアイテムの縦余白を拡大 */
       border-bottom: 1px solid var(--border-light);
     }
 
@@ -698,7 +700,7 @@
 
     .partner-item {
       background: var(--white);
-      padding: 18px 20px;
+      padding: 22px 24px; /* ADJUSTED: 18px 20px→22px 24px 提携先グリッドの内余白を増やす */
       transition: background var(--transition);
     }
 
@@ -723,7 +725,7 @@
        APP SECTION
     ============================================ */
     .app-section {
-      padding: 96px 0;
+      padding: 128px 0; /* ADJUSTED: 96px→128px 他セクションと統一した呼吸感 */
       background: var(--navy-deep);
     }
 
@@ -766,7 +768,7 @@
 
     .app-spec {
       background: rgba(255,255,255,0.03);
-      padding: 20px 22px;
+      padding: 24px 26px; /* ADJUSTED: 20px 22px→24px 26px スペック欄の内余白を広げる */
     }
 
     .app-spec-label {
@@ -794,8 +796,8 @@
     .team-item {
       display: flex;
       align-items: baseline;
-      gap: 12px;
-      padding: 14px 0;
+      gap: 16px; /* ADJUSTED: 12px→16px ロールと名前の間隔を広げて読みやすく */
+      padding: 18px 0; /* ADJUSTED: 14px→18px チームリスト各行の縦余白を拡大 */
       border-bottom: 1px solid rgba(255,255,255,0.07);
     }
 
@@ -821,7 +823,7 @@
     /* ============================================
        ABOUT SECTION
     ============================================ */
-    .about-section { padding: 96px 0; }
+    .about-section { padding: 128px 0; } /* ADJUSTED: 96px→128px 他セクションと統一した呼吸感 */
 
     .about-inner {
       display: grid;
@@ -842,11 +844,11 @@
 
     .about-table th {
       font-family: var(--font-jp-sans);
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.06em;
+      font-size: 10.5px; /* ADJUSTED: 11px→10.5px ラベル列を控えめに */
+      font-weight: 300; /* ADJUSTED: 400→300 軽くして内容列を際立たせる */
+      letter-spacing: 0.08em; /* ADJUSTED: 0.06em→0.08em 読みやすさ向上 */
       color: var(--text-tertiary);
-      padding: 16px 20px 16px 0;
+      padding: 22px 24px 22px 0; /* ADJUSTED: 16px→22px 行の高さを増やし窮屈感を解消 */
       text-align: left;
       white-space: nowrap;
       vertical-align: top;
@@ -855,11 +857,11 @@
 
     .about-table td {
       font-family: var(--font-jp-sans);
-      font-size: 13px;
+      font-size: 12.5px; /* ADJUSTED: 13px→12.5px 会社情報テキストを軽く見せる */
       font-weight: 300;
       color: var(--text-primary);
-      padding: 16px 0;
-      line-height: 1.7;
+      padding: 22px 0; /* ADJUSTED: 16px→22px セル高さを統一 */
+      line-height: 2.0; /* ADJUSTED: 1.7→2.0 日本語目標値 1.9〜2.0 に統一 */
     }
 
     /* ============================================
@@ -867,16 +869,16 @@
     ============================================ */
     footer {
       background: var(--text-primary);
-      padding: 56px 0 36px;
+      padding: 80px 0 48px; /* ADJUSTED: 56px→80px 上余白を増やしフッター開始部に余裕。下余白も 36px→48px に拡大 */
     }
 
     .footer-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      padding-bottom: 40px;
+      padding-bottom: 52px; /* ADJUSTED: 40px→52px ロゴ・リンク下の余白を広げる */
       border-bottom: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 32px;
+      margin-bottom: 40px; /* ADJUSTED: 32px→40px ボトムバーとの間隔を拡大 */
     }
 
     .footer-logo {
@@ -904,26 +906,26 @@
     .footer-link-group {}
 
     .footer-link-group-title {
-      font-size: 10px;
+      font-size: 9.5px; /* ADJUSTED: 10px→9.5px フッターラベルは最小限の存在感に */
       font-weight: 500;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.18em; /* ADJUSTED: 0.12em→0.18em uppercase の通気性を高める */
       text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
-      margin-bottom: 14px;
+      color: rgba(255,255,255,0.3); /* ADJUSTED: 0.35→0.30 さらに控えめに */
+      margin-bottom: 18px; /* ADJUSTED: 14px→18px タイトルとリンクの間を広げる */
     }
 
     .footer-link-group ul {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 12px; /* ADJUSTED: 8px→12px フッターリンク間の余白を増やして読みやすく */
     }
 
     .footer-link-group a {
       font-family: var(--font-jp-sans);
-      font-size: 12px;
+      font-size: 11.5px; /* ADJUSTED: 12px→11.5px フッターリンクを少し小さく、密度を下げる */
       font-weight: 300;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.5); /* ADJUSTED: 0.55→0.50 存在感をさらに抑える */
       transition: color var(--transition);
     }
 
@@ -937,16 +939,16 @@
 
     .footer-copy {
       font-family: var(--font-jp-sans);
-      font-size: 11px;
+      font-size: 10.5px; /* ADJUSTED: 11px→10.5px コピーライトは最小限に */
       font-weight: 300;
-      color: rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.22); /* ADJUSTED: 0.25→0.22 さらに控えめに */
     }
 
     .footer-address {
       font-family: var(--font-jp-sans);
-      font-size: 11px;
+      font-size: 10.5px; /* ADJUSTED: 11px→10.5px 住所も統一 */
       font-weight: 300;
-      color: rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.22); /* ADJUSTED: 0.25→0.22 */
       text-align: right;
     }
 
@@ -972,26 +974,50 @@
        RESPONSIVE
     ============================================ */
     @media (max-width: 900px) {
-      .container { padding: 0 24px; }
-      .nav-inner { padding: 0 24px; }
-      .announcement { padding: 10px 24px; }
+      /* ADJUSTED: モバイル全体 — 余白を適度にスケールダウンしつつ呼吸感を維持 */
+      .container { padding: 0 20px; } /* ADJUSTED: 24px→20px 小さい画面でコンテンツ幅を最大化しつつ端を確保 */
+      .nav-inner { padding: 0 20px; }
+      .announcement { padding: 8px 20px; } /* ADJUSTED: 10px→8px モバイルでは帯を少し薄く */
+
       .hero-inner,
       .dsro-inner,
       .mfr-inner,
       .app-inner,
-      .about-inner { grid-template-columns: 1fr; gap: 48px; }
-      .hero { padding: 160px 0 80px; }
-      .hero-right { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 40px; flex-direction: row; flex-wrap: wrap; gap: 32px; }
+      .about-inner { grid-template-columns: 1fr; gap: 56px; } /* ADJUSTED: 48px→56px 縦並び時のグリッドギャップを広げる */
+
+      .section { padding: 88px 0; } /* ADJUSTED: 128px→88px モバイルでは適度に縮小、依然余裕ある高さを維持 */
+      .dsro-section { padding: 88px 0; } /* ADJUSTED: 128px→88px */
+      .mfr-section { padding: 88px 0; } /* ADJUSTED: 128px→88px */
+      .app-section { padding: 88px 0; } /* ADJUSTED: 128px→88px */
+      .about-section { padding: 88px 0; } /* ADJUSTED: 128px→88px */
+
+      .hero { padding: 168px 0 96px; } /* ADJUSTED: 160px→168px (nav+announcement高さ調整)、下余白 80px→96px */
+      .hero-right { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 40px; flex-direction: row; flex-wrap: wrap; gap: 36px; } /* ADJUSTED: gap 32px→36px */
       .hero-stat { padding: 0; border-bottom: none; }
+
+      .heading-xl { font-size: clamp(2.2rem, 8vw, 3.2rem); } /* ADJUSTED: モバイル時の英語見出しサイズを画面幅に合わせてスケール */
+      .heading-xl-jp { font-size: clamp(0.95rem, 3.5vw, 1.2rem); } /* ADJUSTED: 日本語サブコピーも比例縮小しサイズ差を維持 */
+      .heading-lg { font-size: clamp(1.5rem, 5.5vw, 2.2rem); } /* ADJUSTED: セクション見出しをモバイル幅でスケール */
+      .heading-lg-jp { font-size: clamp(0.8rem, 2.8vw, 1rem); } /* ADJUSTED: 日本語見出しも比例縮小 */
+
+      .section-header { margin-bottom: 56px; } /* ADJUSTED: 80px→56px モバイルでの縦長を抑制 */
+
       .services-grid { grid-template-columns: 1fr; }
-      .service-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .service-card {
+        padding: 44px 32px; /* ADJUSTED: 56px 44px→44px 32px モバイルでは内余白を適度に縮小 */
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
       .service-card:last-child { border-bottom: none; }
+
       .nav-links { display: none; }
       .mfr-left { position: static; }
       .partner-grid { grid-template-columns: 1fr; }
-      .footer-top { flex-direction: column; gap: 32px; }
-      .footer-links { flex-wrap: wrap; gap: 28px; }
-      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+
+      footer { padding: 60px 0 36px; } /* ADJUSTED: 80px→60px フッター上余白をモバイル向けに縮小 */
+      .footer-top { flex-direction: column; gap: 36px; padding-bottom: 36px; } /* ADJUSTED: gap 32px→36px */
+      .footer-links { flex-wrap: wrap; gap: 32px; } /* ADJUSTED: 28px→32px */
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; } /* ADJUSTED: 8px→10px */
       .footer-address { text-align: left; }
     }
   </style>
