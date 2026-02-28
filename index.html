@@ -65,84 +65,84 @@
     ============================================ */
     .label {
       font-family: var(--font-body);
-      font-size: 10.5px; /* ADJUSTED: 少し小さく抑え、ヒエラルキーの底辺として機能させる */
+      font-size: 12px; /* ADJUSTED: 少し小さく抑え、ヒエラルキーの底辺として機能させる */
       font-weight: 500;
-      letter-spacing: 0.2em; /* ADJUSTED: 0.14em→0.2em で uppercase の通気性・格調を高める */
+      letter-spacing: 0.14em; /* ADJUSTED: 0.14em→0.2em で uppercase の通気性・格調を高める */
       text-transform: uppercase;
       color: var(--navy);
     }
 
     .label-jp {
       font-family: var(--font-jp-sans);
-      font-size: 11px;
-      font-weight: 300; /* ADJUSTED: 400→300 日本語ラベルは軽いウェイトで控えめに */
-      letter-spacing: 0.12em; /* ADJUSTED: 0.1em→0.12em わずかに間隔を空けて可読性向上 */
+      font-size: 12px;
+      font-weight: 400; /* ADJUSTED: 400→300 日本語ラベルは軽いウェイトで控えめに */
+      letter-spacing: 0.1em; /* ADJUSTED: 0.1em→0.12em わずかに間隔を空けて可読性向上 */
       color: var(--text-tertiary);
     }
 
     .heading-xl {
       font-family: var(--font-display);
-      font-size: clamp(2.8rem, 5.5vw, 4.8rem); /* ADJUSTED: 欧文見出しは「細く大きく」の原則で上限を引き上げ */
-      font-weight: 400; /* ADJUSTED: 500→400 Cormorant の細さを活かし、静かな権威感を演出 */
-      line-height: 1.12; /* ADJUSTED: 1.18→1.12 英語見出しは目標 1.1〜1.2 の下限へ。大きくしたため間延び防止 */
-      letter-spacing: -0.015em; /* ADJUSTED: サイズ増に合わせてわずかにトラッキングを詰める */
+      font-size: clamp(2.6rem, 5vw, 4.2rem); /* ADJUSTED: 欧文見出しは「細く大きく」の原則で上限を引き上げ */
+      font-weight: 500; /* ADJUSTED: 500→400 Cormorant の細さを活かし、静かな権威感を演出 */
+      line-height: 1.18; /* ADJUSTED: 1.18→1.12 英語見出しは目標 1.1〜1.2 の下限へ。大きくしたため間延び防止 */
+      letter-spacing: -0.01em; /* ADJUSTED: サイズ増に合わせてわずかにトラッキングを詰める */
       color: var(--text-primary);
     }
 
     .heading-xl-jp {
       font-family: var(--font-jp-serif);
-      font-size: clamp(1.15rem, 2vw, 1.55rem); /* ADJUSTED: 2.8rem→1.55rem 英語との明確なサイズ差でヒエラルキーを強調 */
-      font-weight: 400; /* ADJUSTED: 500→400 日本語サブコピーは軽くして欧文見出しを引き立てる */
-      line-height: 1.95; /* ADJUSTED: 1.5→1.95 日本語テキストは目標 1.9〜2.0 に合わせる */
-      letter-spacing: 0.06em; /* ADJUSTED: 0.04em→0.06em 軽いウェイトに合わせて字間を少し広げる */
+      font-size: clamp(1.7rem, 3.5vw, 2.8rem); /* ADJUSTED: 2.8rem→1.55rem 英語との明確なサイズ差でヒエラルキーを強調 */
+      font-weight: 500; /* ADJUSTED: 500→400 日本語サブコピーは軽くして欧文見出しを引き立てる */
+      line-height: 1.5; /* ADJUSTED: 1.5→1.95 日本語テキストは目標 1.9〜2.0 に合わせる */
+      letter-spacing: 0.04em; /* ADJUSTED: 0.04em→0.06em 軽いウェイトに合わせて字間を少し広げる */
       color: var(--text-primary);
     }
 
     .heading-lg {
       font-family: var(--font-display);
-      font-size: clamp(1.75rem, 3.2vw, 2.75rem); /* ADJUSTED: 欧文セクション見出しも一回り大きく */
-      font-weight: 400; /* ADJUSTED: 500→400 Cormorant の細さで品格を表現 */
-      line-height: 1.15; /* ADJUSTED: 1.25→1.15 英語見出し目標値 1.1〜1.2 に合わせる */
+      font-size: clamp(1.6rem, 3vw, 2.4rem); /* ADJUSTED: 欧文セクション見出しも一回り大きく */
+      font-weight: 500; /* ADJUSTED: 500→400 Cormorant の細さで品格を表現 */
+      line-height: 1.25; /* ADJUSTED: 1.25→1.15 英語見出し目標値 1.1〜1.2 に合わせる */
       letter-spacing: -0.01em;
     }
 
     .heading-lg-jp {
       font-family: var(--font-jp-serif);
-      font-size: clamp(0.85rem, 1.4vw, 1.05rem); /* ADJUSTED: 1.5rem→1.05rem 欧文との差を拡大しヒエラルキー明確化 */
-      font-weight: 400; /* ADJUSTED: 500→400 軽くして欧文を引き立てる */
-      line-height: 1.95; /* ADJUSTED: 1.6→1.95 日本語テキスト目標値 1.9〜2.0 */
-      letter-spacing: 0.07em; /* ADJUSTED: 0.05em→0.07em 軽いウェイト補完で可読性向上 */
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem); /* ADJUSTED: 1.5rem→1.05rem 欧文との差を拡大しヒエラルキー明確化 */
+      font-weight: 500; /* ADJUSTED: 500→400 軽くして欧文を引き立てる */
+      line-height: 1.6; /* ADJUSTED: 1.6→1.95 日本語テキスト目標値 1.9〜2.0 */
+      letter-spacing: 0.05em; /* ADJUSTED: 0.05em→0.07em 軽いウェイト補完で可読性向上 */
     }
 
     .heading-md {
       font-family: var(--font-display);
-      font-size: clamp(1.15rem, 2.1vw, 1.5rem); /* ADJUSTED: 欧文カード見出しを一段ゆとりある大きさに */
-      font-weight: 400; /* ADJUSTED: 500→400 Cormorant の細さを一貫して保つ */
+      font-size: clamp(1.1rem, 2vw, 1.4rem); /* ADJUSTED: 欧文カード見出しを一段ゆとりある大きさに */
+      font-weight: 500; /* ADJUSTED: 500→400 Cormorant の細さを一貫して保つ */
       line-height: 1.2; /* ADJUSTED: 明示的に英語見出しの行間 1.1〜1.2 を設定 */
       letter-spacing: 0.01em;
     }
 
     .heading-md-jp {
       font-family: var(--font-jp-serif);
-      font-size: 0.8rem; /* ADJUSTED: 1rem→0.8rem 欧文カード見出しとの差を出す */
-      font-weight: 400; /* ADJUSTED: 500→400 日本語サブ見出しは軽く抑える */
+      font-size: 1rem; /* ADJUSTED: 1rem→0.8rem 欧文カード見出しとの差を出す */
+      font-weight: 500; /* ADJUSTED: 500→400 日本語サブ見出しは軽く抑える */
       line-height: 1.95; /* ADJUSTED: 明示的に日本語行間 1.9〜2.0 を設定 */
       letter-spacing: 0.08em; /* ADJUSTED: 0.06em→0.08em 小さなサイズ・軽いウェイトの補完 */
     }
 
     .body-text {
       font-family: var(--font-jp-sans);
-      font-size: 0.85rem; /* ADJUSTED: 0.875rem→0.85rem 日本語本文は小さめで軽い印象に */
+      font-size: 0.9375rem; /* ADJUSTED: 0.875rem→0.85rem 日本語本文は小さめで軽い印象に */
       font-weight: 300;
-      line-height: 2.0; /* ADJUSTED: 1.9→2.0 日本語テキスト目標値 1.9〜2.0 の上限へ */
+      line-height: 1.9; /* ADJUSTED: 1.9→2.0 日本語テキスト目標値 1.9〜2.0 の上限へ */
       color: var(--text-secondary);
     }
 
     .body-text-sm {
       font-family: var(--font-jp-sans);
-      font-size: 0.775rem; /* ADJUSTED: 0.8rem→0.775rem 補足テキストをさらに一段小さく */
+      font-size: 0.875rem; /* ADJUSTED: 0.8rem→0.775rem 補足テキストをさらに一段小さく */
       font-weight: 300;
-      line-height: 1.95; /* ADJUSTED: 1.8→1.95 日本語テキスト目標値 1.9〜2.0 に統一 */
+      line-height: 1.8; /* ADJUSTED: 1.8→1.95 日本語テキスト目標値 1.9〜2.0 に統一 */
       color: var(--text-tertiary);
     }
 
@@ -156,7 +156,7 @@
     }
 
     .section {
-      padding: 128px 0; /* ADJUSTED: 96px→128px セクション間の呼吸感を重視（ブランド原則「広めに取る」） */
+      padding: 96px 0; /* ADJUSTED: 96px→128px セクション間の呼吸感を重視（ブランド原則「広めに取る」） */
     }
 
     .section-alt {
@@ -174,10 +174,10 @@
     }
 
     .divider-short {
-      width: 28px; /* ADJUSTED: 32px→28px 細く短く、存在感を抑える */
+      width: 32px; /* ADJUSTED: 32px→28px 細く短く、存在感を抑える */
       height: 1px;
       background: var(--navy);
-      margin: 28px 0; /* ADJUSTED: 20px→28px 上下の余白を広げ、見出しとの関係に呼吸感 */
+      margin: 20px 0; /* ADJUSTED: 20px→28px 上下の余白を広げ、見出しとの関係に呼吸感 */
     }
 
     /* ============================================
@@ -335,7 +335,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 44px; /* ADJUSTED: 36px→44px アイブロウと見出しの間に余裕 */
+      margin-bottom: 36px; /* ADJUSTED: 36px→44px アイブロウと見出しの間に余裕 */
     }
 
     .hero-eyebrow-line {
@@ -345,16 +345,16 @@
     }
 
     .hero-headline {
-      margin-bottom: 16px; /* ADJUSTED: 8px→16px 英語見出しと日本語サブコピーの間を開けてヒエラルキーを視覚化 */
+      margin-bottom: 8px; /* ADJUSTED: 8px→16px 英語見出しと日本語サブコピーの間を開けてヒエラルキーを視覚化 */
     }
 
     .hero-headline-jp {
-      margin-bottom: 40px; /* ADJUSTED: 32px→40px 日本語サブコピーと本文の間の余白を拡大 */
+      margin-bottom: 32px; /* ADJUSTED: 32px→40px 日本語サブコピーと本文の間の余白を拡大 */
     }
 
     .hero-desc {
-      max-width: 440px; /* ADJUSTED: 420px→440px 行幅をわずかに広げて行数を抑える */
-      margin-bottom: 56px; /* ADJUSTED: 48px→56px 本文とアクションの間に十分な呼吸感 */
+      max-width: 420px; /* ADJUSTED: 420px→440px 行幅をわずかに広げて行数を抑える */
+      margin-bottom: 48px; /* ADJUSTED: 48px→56px 本文とアクションの間に十分な呼吸感 */
     }
 
     .hero-actions {
@@ -370,10 +370,10 @@
       background: var(--navy);
       color: var(--text-inverse);
       font-family: var(--font-jp-sans);
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 400;
       letter-spacing: 0.08em;
-      padding: 12px 28px;
+      padding: 14px 28px;
       border-radius: var(--radius);
       border: 1px solid var(--navy);
       transition: background var(--transition), color var(--transition);
@@ -390,10 +390,10 @@
       gap: 8px;
       color: var(--navy);
       font-family: var(--font-jp-sans);
-      font-size: 12px;
+      font-size: 14px;
       font-weight: 400;
       letter-spacing: 0.08em;
-      padding: 12px 0;
+      padding: 14px 0;
       border-bottom: 1px solid var(--border);
       transition: border-color var(--transition);
     }
@@ -415,7 +415,7 @@
     }
 
     .hero-stat {
-      padding: 32px 0; /* ADJUSTED: 28px→32px 統計数値の縦余白を拡大、各項目に呼吸感 */
+      padding: 28px 0; /* ADJUSTED: 28px→32px 統計数値の縦余白を拡大、各項目に呼吸感 */
       border-bottom: 1px solid var(--border-light);
     }
     .hero-stat:first-child { padding-top: 0; }
@@ -442,7 +442,7 @@
        SECTION HEADER
     ============================================ */
     .section-header {
-      margin-bottom: 80px; /* ADJUSTED: 64px→80px セクションヘッダーとコンテンツの間の呼吸感を確保 */
+      margin-bottom: 64px; /* ADJUSTED: 64px→80px セクションヘッダーとコンテンツの間の呼吸感を確保 */
     }
 
     .section-header-row {
@@ -472,7 +472,7 @@
     }
 
     .service-card {
-      padding: 56px 44px; /* ADJUSTED: 44px 36px→56px 44px カード内側の余白を広げ、窮屈感を解消 */
+      padding: 44px 36px; /* ADJUSTED: 44px 36px→56px 44px カード内側の余白を広げ、窮屈感を解消 */
       border-right: 1px solid var(--border);
       transition: background var(--transition);
       cursor: default;
@@ -485,7 +485,7 @@
     .service-icon {
       width: 36px;
       height: 36px;
-      margin-bottom: 36px; /* ADJUSTED: 28px→36px アイコン下余白を増やし、タグまでの間に余裕 */
+      margin-bottom: 28px; /* ADJUSTED: 28px→36px アイコン下余白を増やし、タグまでの間に余裕 */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -504,11 +504,11 @@
     }
 
     .service-title-jp {
-      margin-bottom: 28px; /* ADJUSTED: 20px→28px サブタイトルと本文の間を広げて読みやすく */
+      margin-bottom: 20px; /* ADJUSTED: 20px→28px サブタイトルと本文の間を広げて読みやすく */
     }
 
     .service-body {
-      margin-bottom: 36px; /* ADJUSTED: 28px→36px 本文とリンクの間の余白を拡大 */
+      margin-bottom: 28px; /* ADJUSTED: 28px→36px 本文とリンクの間の余白を拡大 */
     }
 
     .service-link {
@@ -532,7 +532,7 @@
        DSRO SECTION
     ============================================ */
     .dsro-section {
-      padding: 128px 0; /* ADJUSTED: 96px→128px .section と統一した呼吸感 */
+      padding: 96px 0; /* ADJUSTED: 96px→128px .section と統一した呼吸感 */
       background: var(--bg-alt);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
@@ -585,11 +585,11 @@
 
     .membership-table thead th {
       font-family: var(--font-jp-sans);
-      font-size: 10.5px; /* ADJUSTED: 11px→10.5px ヘッダーはやや控えめなサイズに */
-      font-weight: 300; /* ADJUSTED: 400→300 軽いウェイトで圧迫感を減らす */
-      letter-spacing: 0.08em; /* ADJUSTED: 0.06em→0.08em 読みやすさ向上 */
+      font-size: 12px; /* ADJUSTED: 11px→10.5px ヘッダーはやや控えめなサイズに */
+      font-weight: 400; /* ADJUSTED: 400→300 軽いウェイトで圧迫感を減らす */
+      letter-spacing: 0.06em; /* ADJUSTED: 0.06em→0.08em 読みやすさ向上 */
       color: rgba(255,255,255,0.8);
-      padding: 14px 20px; /* ADJUSTED: 12px 16px→14px 20px テーブルヘッダーに余裕を持たせる */
+      padding: 12px 16px; /* ADJUSTED: 12px 16px→14px 20px テーブルヘッダーに余裕を持たせる */
       text-align: left;
       border: none;
     }
@@ -606,10 +606,10 @@
 
     .membership-table td {
       font-family: var(--font-jp-sans);
-      font-size: 12.5px; /* ADJUSTED: 13px→12.5px テーブルの情報を軽く見せる */
+      font-size: 14px; /* ADJUSTED: 13px→12.5px テーブルの情報を軽く見せる */
       font-weight: 300;
       color: var(--text-primary);
-      padding: 18px 20px; /* ADJUSTED: 14px 16px→18px 20px セル内の余白を増やして窮屈感解消 */
+      padding: 14px 16px; /* ADJUSTED: 14px 16px→18px 20px セル内の余白を増やして窮屈感解消 */
       vertical-align: top;
     }
 
@@ -623,14 +623,14 @@
     .badge {
       display: inline-block;
       font-family: var(--font-body);
-      font-size: 9px;
+      font-size: 10px;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--navy);
       border: 1px solid var(--navy);
       border-radius: var(--radius);
-      padding: 2px 8px;
+      padding: 3px 8px;
       margin-left: 6px;
       vertical-align: middle;
     }
@@ -643,7 +643,7 @@
     /* ============================================
        MFR SECTION
     ============================================ */
-    .mfr-section { padding: 128px 0; } /* ADJUSTED: 96px→128px .section と統一した呼吸感 */
+    .mfr-section { padding: 96px 0; } /* ADJUSTED: 96px→128px .section と統一した呼吸感 */
 
     .mfr-inner {
       display: grid;
@@ -661,8 +661,8 @@
 
     .feature-item {
       display: flex;
-      gap: 20px; /* ADJUSTED: 16px→20px 番号と本文の間の余白を広げる */
-      padding: 24px 0; /* ADJUSTED: 20px→24px 各フィーチャーアイテムの縦余白を拡大 */
+      gap: 16px; /* ADJUSTED: 16px→20px 番号と本文の間の余白を広げる */
+      padding: 20px 0; /* ADJUSTED: 20px→24px 各フィーチャーアイテムの縦余白を拡大 */
       border-bottom: 1px solid var(--border-light);
     }
 
@@ -725,7 +725,7 @@
        APP SECTION
     ============================================ */
     .app-section {
-      padding: 128px 0; /* ADJUSTED: 96px→128px 他セクションと統一した呼吸感 */
+      padding: 96px 0; /* ADJUSTED: 96px→128px 他セクションと統一した呼吸感 */
       background: var(--navy-deep);
     }
 
@@ -768,21 +768,21 @@
 
     .app-spec {
       background: rgba(255,255,255,0.03);
-      padding: 24px 26px; /* ADJUSTED: 20px 22px→24px 26px スペック欄の内余白を広げる */
+      padding: 20px 22px; /* ADJUSTED: 20px 22px→24px 26px スペック欄の内余白を広げる */
     }
 
     .app-spec-label {
       font-family: var(--font-jp-sans);
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 300;
       letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.6);
       margin-bottom: 4px;
     }
 
     .app-spec-value {
       font-family: var(--font-jp-sans);
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 400;
       color: rgba(255,255,255,0.85);
     }
@@ -823,7 +823,7 @@
     /* ============================================
        ABOUT SECTION
     ============================================ */
-    .about-section { padding: 128px 0; } /* ADJUSTED: 96px→128px 他セクションと統一した呼吸感 */
+    .about-section { padding: 96px 0; } /* ADJUSTED: 96px→128px 他セクションと統一した呼吸感 */
 
     .about-inner {
       display: grid;
@@ -844,11 +844,11 @@
 
     .about-table th {
       font-family: var(--font-jp-sans);
-      font-size: 10.5px; /* ADJUSTED: 11px→10.5px ラベル列を控えめに */
-      font-weight: 300; /* ADJUSTED: 400→300 軽くして内容列を際立たせる */
-      letter-spacing: 0.08em; /* ADJUSTED: 0.06em→0.08em 読みやすさ向上 */
+      font-size: 12px; /* ADJUSTED: 11px→10.5px ラベル列を控えめに */
+      font-weight: 400; /* ADJUSTED: 400→300 軽くして内容列を際立たせる */
+      letter-spacing: 0.06em; /* ADJUSTED: 0.06em→0.08em 読みやすさ向上 */
       color: var(--text-tertiary);
-      padding: 22px 24px 22px 0; /* ADJUSTED: 16px→22px 行の高さを増やし窮屈感を解消 */
+      padding: 16px 20px 16px 0; /* ADJUSTED: 16px→22px 行の高さを増やし窮屈感を解消 */
       text-align: left;
       white-space: nowrap;
       vertical-align: top;
@@ -857,11 +857,11 @@
 
     .about-table td {
       font-family: var(--font-jp-sans);
-      font-size: 12.5px; /* ADJUSTED: 13px→12.5px 会社情報テキストを軽く見せる */
+      font-size: 14px; /* ADJUSTED: 13px→12.5px 会社情報テキストを軽く見せる */
       font-weight: 300;
       color: var(--text-primary);
-      padding: 22px 0; /* ADJUSTED: 16px→22px セル高さを統一 */
-      line-height: 2.0; /* ADJUSTED: 1.7→2.0 日本語目標値 1.9〜2.0 に統一 */
+      padding: 16px 0; /* ADJUSTED: 16px→22px セル高さを統一 */
+      line-height: 1.7; /* ADJUSTED: 1.7→2.0 日本語目標値 1.9〜2.0 に統一 */
     }
 
     /* ============================================
@@ -869,16 +869,16 @@
     ============================================ */
     footer {
       background: var(--text-primary);
-      padding: 80px 0 48px; /* ADJUSTED: 56px→80px 上余白を増やしフッター開始部に余裕。下余白も 36px→48px に拡大 */
+      padding: 56px 0 36px; /* ADJUSTED: 56px→80px 上余白を増やしフッター開始部に余裕。下余白も 36px→48px に拡大 */
     }
 
     .footer-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      padding-bottom: 52px; /* ADJUSTED: 40px→52px ロゴ・リンク下の余白を広げる */
+      padding-bottom: 40px; /* ADJUSTED: 40px→52px ロゴ・リンク下の余白を広げる */
       border-bottom: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 40px; /* ADJUSTED: 32px→40px ボトムバーとの間隔を拡大 */
+      margin-bottom: 32px; /* ADJUSTED: 32px→40px ボトムバーとの間隔を拡大 */
     }
 
     .footer-logo {
@@ -891,10 +891,10 @@
 
     .footer-logo-sub {
       font-family: var(--font-jp-sans);
-      font-size: 10px;
+      font-size: 11px;
       font-weight: 300;
       letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.5);
       margin-top: 4px;
     }
 
@@ -974,37 +974,31 @@
        RESPONSIVE
     ============================================ */
     @media (max-width: 900px) {
-      /* ADJUSTED: モバイル全体 — 余白を適度にスケールダウンしつつ呼吸感を維持 */
-      .container { padding: 0 20px; } /* ADJUSTED: 24px→20px 小さい画面でコンテンツ幅を最大化しつつ端を確保 */
-      .nav-inner { padding: 0 20px; }
-      .announcement { padding: 8px 20px; } /* ADJUSTED: 10px→8px モバイルでは帯を少し薄く */
+      .container { padding: 0 24px; }
+      .nav-inner { padding: 0 24px; }
+      .announcement { padding: 10px 24px; }
 
       .hero-inner,
       .dsro-inner,
       .mfr-inner,
       .app-inner,
-      .about-inner { grid-template-columns: 1fr; gap: 56px; } /* ADJUSTED: 48px→56px 縦並び時のグリッドギャップを広げる */
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
 
-      .section { padding: 88px 0; } /* ADJUSTED: 128px→88px モバイルでは適度に縮小、依然余裕ある高さを維持 */
-      .dsro-section { padding: 88px 0; } /* ADJUSTED: 128px→88px */
-      .mfr-section { padding: 88px 0; } /* ADJUSTED: 128px→88px */
-      .app-section { padding: 88px 0; } /* ADJUSTED: 128px→88px */
-      .about-section { padding: 88px 0; } /* ADJUSTED: 128px→88px */
+      .section { padding: 88px 0; }
+      .dsro-section { padding: 88px 0; }
+      .mfr-section { padding: 88px 0; }
+      .app-section { padding: 88px 0; }
+      .about-section { padding: 88px 0; }
 
-      .hero { padding: 168px 0 96px; } /* ADJUSTED: 160px→168px (nav+announcement高さ調整)、下余白 80px→96px */
-      .hero-right { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 40px; flex-direction: row; flex-wrap: wrap; gap: 36px; } /* ADJUSTED: gap 32px→36px */
+      .hero { padding: 160px 0 80px; }
+      .hero-right { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 40px; flex-direction: row; flex-wrap: wrap; gap: 32px; }
       .hero-stat { padding: 0; border-bottom: none; }
 
-      .heading-xl { font-size: clamp(2.2rem, 8vw, 3.2rem); } /* ADJUSTED: モバイル時の英語見出しサイズを画面幅に合わせてスケール */
-      .heading-xl-jp { font-size: clamp(0.95rem, 3.5vw, 1.2rem); } /* ADJUSTED: 日本語サブコピーも比例縮小しサイズ差を維持 */
-      .heading-lg { font-size: clamp(1.5rem, 5.5vw, 2.2rem); } /* ADJUSTED: セクション見出しをモバイル幅でスケール */
-      .heading-lg-jp { font-size: clamp(0.8rem, 2.8vw, 1rem); } /* ADJUSTED: 日本語見出しも比例縮小 */
-
-      .section-header { margin-bottom: 56px; } /* ADJUSTED: 80px→56px モバイルでの縦長を抑制 */
+      .section-header { margin-bottom: 48px; }
 
       .services-grid { grid-template-columns: 1fr; }
       .service-card {
-        padding: 44px 32px; /* ADJUSTED: 56px 44px→44px 32px モバイルでは内余白を適度に縮小 */
+        padding: 36px 28px;
         border-right: none;
         border-bottom: 1px solid var(--border);
       }
@@ -1014,10 +1008,9 @@
       .mfr-left { position: static; }
       .partner-grid { grid-template-columns: 1fr; }
 
-      footer { padding: 60px 0 36px; } /* ADJUSTED: 80px→60px フッター上余白をモバイル向けに縮小 */
-      .footer-top { flex-direction: column; gap: 36px; padding-bottom: 36px; } /* ADJUSTED: gap 32px→36px */
-      .footer-links { flex-wrap: wrap; gap: 32px; } /* ADJUSTED: 28px→32px */
-      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 10px; } /* ADJUSTED: 8px→10px */
+      .footer-top { flex-direction: column; gap: 32px; }
+      .footer-links { flex-wrap: wrap; gap: 28px; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
       .footer-address { text-align: left; }
     }
   </style>
@@ -1544,9 +1537,14 @@
       observer.observe(el);
     });
 
-    // Immediately show hero elements
-    document.querySelectorAll('.hero .fade-up').forEach(el => {
-      setTimeout(() => el.classList.add('visible'), 100);
+    // Immediately show elements already in the viewport on load
+    window.addEventListener('load', () => {
+      document.querySelectorAll('.fade-up').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          el.classList.add('visible');
+        }
+      });
     });
 
     // Smooth nav scroll offset
