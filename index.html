@@ -478,7 +478,8 @@
       cursor: default;
     }
 
-    .service-card:last-child { border-right: none; }
+    .service-card:nth-child(3n) { border-right: none; }
+    .service-card:nth-child(-n+3) { border-bottom: 1px solid var(--border); }
 
     .service-card:hover { background: var(--navy-light); }
 
@@ -1003,6 +1004,7 @@
         border-bottom: 1px solid var(--border);
       }
       .service-card:last-child { border-bottom: none; }
+      .service-card:nth-child(3n) { border-right: none; }
 
       .nav-links { display: none; }
       .mfr-left { position: static; }
@@ -1144,9 +1146,59 @@
           <h3 class="heading-md service-title">Prevention App</h3>
           <p class="heading-md-jp service-title-jp">予防医療アプリ</p>
           <p class="body-text service-body">
-            栗原毅院長監修のもと、生活習慣病の予防・改善を医師チームがデジタルで伴走。食事・運動・ストレスの個別指導と専門医連携を統合。
+            専門医師チーム監修のもと、生活習慣病の予防・改善を医師チームがデジタルで伴走。食事・運動・ストレスの個別指導と専門医連携を統合。
           </p>
           <a href="#app" class="service-link">詳細<span class="btn-arrow">→</span></a>
+        </div>
+
+        <!-- Cost Optimization -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 6v6l3 3"/>
+              <path d="M8 12h8"/>
+            </svg>
+          </div>
+          <p class="label service-tag">Clinic Management</p>
+          <h3 class="heading-md service-title">Cost Optimization</h3>
+          <p class="heading-md-jp service-title-jp">クリニック運営経費削減支援</p>
+          <p class="body-text service-body">
+            医療機関の運営コストを可視化・分析し、無駄な支出を特定。経営効率化に向けた改善提案から実装フォローまで、経営層の右腕として伴走します。
+          </p>
+        </div>
+
+        <!-- Beauty Medical Startup -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <p class="label service-tag">Beauty Medical</p>
+          <h3 class="heading-md service-title">Startup Support</h3>
+          <p class="heading-md-jp service-title-jp">美容医療・セルフメディカ事業支援</p>
+          <p class="body-text service-body">
+            美容医療・セルフメディカ分野の国内新規事業立ち上げをプロジェクト統括として支援。市場参入戦略の策定から実務推進まで、ワンストップで担います。
+          </p>
+        </div>
+
+        <!-- Beauty Education -->
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <p class="label service-tag">Beauty & Wellness</p>
+          <h3 class="heading-md service-title">Education System</h3>
+          <p class="heading-md-jp service-title-jp">理美容・エステ向け教育認定制度構築</p>
+          <p class="body-text service-body">
+            理美容・エステ事業者向けに、人材教育プログラムと技術カウンセリング教育体系を構築。認定制度の設計・運用により、サービス品質の標準化と業界信頼性向上を支援します。
+          </p>
         </div>
       </div>
     </div>
@@ -1320,27 +1372,27 @@
           <p class="label-jp" style="margin-bottom:16px;">提携医療機関（一部）</p>
           <div class="partner-grid">
             <div class="partner-item">
-              <p class="partner-name">東京慈恵会医科大学附属病院</p>
+              <p class="partner-name">都内大学病院 A</p>
               <p class="partner-type">大学病院</p>
             </div>
             <div class="partner-item">
-              <p class="partner-name">順天堂大学附属病院</p>
+              <p class="partner-name">都内大学病院 B</p>
               <p class="partner-type">大学病院</p>
             </div>
             <div class="partner-item">
-              <p class="partner-name">東邦大学医療センター大森病院</p>
+              <p class="partner-name">都内大学病院 C</p>
               <p class="partner-type">大学病院</p>
             </div>
             <div class="partner-item">
-              <p class="partner-name">愛育クリニック</p>
+              <p class="partner-name">都内専門クリニック A</p>
               <p class="partner-type">専門クリニック</p>
             </div>
             <div class="partner-item">
-              <p class="partner-name">横浜市民病院</p>
+              <p class="partner-name">関東圏総合病院 A</p>
               <p class="partner-type">総合病院</p>
             </div>
             <div class="partner-item">
-              <p class="partner-name">千葉西総合病院</p>
+              <p class="partner-name">関東圏総合病院 B</p>
               <p class="partner-type">総合病院</p>
             </div>
           </div>
@@ -1360,7 +1412,7 @@
           <h2 class="heading-lg app-headline">Prevention App</h2>
           <p class="heading-lg-jp app-headline-jp">予防医療アプリ</p>
           <p class="body-text app-body">
-            栗原毅院長（栗原クリニック東京日本橋）監修のもと、生活習慣病の予防・改善をデジタルで伴走する専門プログラムです。産業医・管理栄養士・理学療法士による個別指導とMFR連携を統合しています。
+            専門医師チーム監修のもと、生活習慣病の予防・改善をデジタルで伴走する専門プログラムです。産業医・管理栄養士・理学療法士による個別指導とMFR連携を統合しています。
           </p>
           <div class="app-specs">
             <div class="app-spec">
